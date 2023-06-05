@@ -1,3 +1,4 @@
+-- Tomáš M.#0524
 
 CREATE TABLE IF NOT EXISTS t_tomas_marek_project_sql_primary_final AS
 SELECT

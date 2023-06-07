@@ -23,14 +23,6 @@ CREATE VIEW v_yearly_percentage_HDP AS
 		GROUP BY year DESC) b
 	ON a.YEAR = b.YEAR + 1);
 
-/*
-SELECT 
-	*
-FROM v_yearly_percentage_HDP;
-
-DROP TABLE v_yearly_percentage_HDP;
-*/
-
 CREATE VIEW v_yearly_percentage_wage AS
 	(SELECT 
 		a.payroll_year,
@@ -55,14 +47,6 @@ CREATE VIEW v_yearly_percentage_wage AS
 		GROUP BY payroll_year) b
 	ON a.payroll_year = b.payroll_year + 1);
 
-/*
-SELECT 
-	*
-FROM v_yearly_percentage_wage;
-
-DROP TABLE v_yearly_percentage_wage;
-*/
-
 CREATE VIEW v_yearly_percentage_food AS
 	(SELECT
 		b.year_food,
@@ -84,14 +68,6 @@ CREATE VIEW v_yearly_percentage_food AS
 		FROM t_tomas_marek_project_sql_primary_final
 		GROUP BY year_food) b
 	ON a.year_food = b.year_food + 1);
-
-/*
-SELECT 
-	*
-FROM v_yearly_percentage_food;
-
-DROP TABLE v_yearly_percentage_food;
-*/
 
 SELECT 
 	a.*,

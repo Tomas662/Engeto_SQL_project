@@ -19,11 +19,3 @@ CREATE TABLE t_tomas_marek_project_sql_secondary_final AS
 	ON a.country = b.country
 	WHERE continent = 'Europe'	
 GROUP BY a.country, b.YEAR DESC;
-
-/*
-SELECT 
-	*
-FROM t_tomas_marek_project_sql_secondary_final;
-
-DROP TABLE t_tomas_marek_project_sql_secondary_final;
-*/

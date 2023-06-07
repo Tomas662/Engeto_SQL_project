@@ -16,11 +16,3 @@ SELECT
 FROM czechia_payroll cpay
 JOIN czechia_price cp 
 ON cpay.payroll_year = YEAR(cp.date_from);
-
-/*
-SELECT 
-	*
-FROM t_tomas_marek_project_sql_primary_final;
-
-DROP TABLE t_tomas_marek_project_sql_primary_final;
-*/

@@ -9,7 +9,7 @@ SELECT
 	ROUND(((a.avarage_price - c.avarage_price) / c.avarage_price * 100), 2) AS yearly_growth
 FROM 
 	(SELECT
-		ROUND(avg(value), 2) AS avarage_price,
+		ROUND(AVG(value), 2) AS avarage_price,
 		category_code,
 		date_from,
 		date_to,
@@ -29,7 +29,7 @@ JOIN
 ON a.category_code = b.code
 JOIN
 	(SELECT 
-		ROUND(avg(value), 2) AS avarage_price,
+		ROUND(AVG(value), 2) AS avarage_price,
 		YEAR(date_from) AS year,
 		category_code
 	FROM t_tomas_marek_project_sql_primary_final

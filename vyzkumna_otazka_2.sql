@@ -1,7 +1,7 @@
 
 CREATE VIEW v_wage_quarter_2006_1 AS
 	(SELECT 
-		ROUND(avg(wages)) AS avarage_wage,
+		ROUND(AVG(wages)) AS avarage_wage,
 		payroll_year,
 		payroll_quarter 
 	FROM t_tomas_marek_project_sql_primary_final
@@ -14,7 +14,7 @@ CREATE VIEW v_wage_quarter_2006_1 AS
 
 CREATE VIEW v_wage_quarter_2018_4 AS
 	(SELECT 
-		ROUND(avg(wages)) AS avarage_wage,
+		ROUND(AVG(wages)) AS avarage_wage,
 		payroll_year,
 		payroll_quarter 
 	FROM t_tomas_marek_project_sql_primary_final
@@ -27,7 +27,7 @@ CREATE VIEW v_wage_quarter_2018_4 AS
 
 CREATE VIEW v_price_food_2006_1 AS 
 	(SELECT 
-		ROUND(avg(value), 2) AS avarage_price,
+		ROUND(AVG(value), 2) AS avarage_price,
 		category_code
 	FROM czechia_price
 	WHERE date_from >= '2006-01-01' 
@@ -37,7 +37,7 @@ CREATE VIEW v_price_food_2006_1 AS
 
 CREATE VIEW v_price_food_2018_4 AS 
 	(SELECT 
-		ROUND(avg(value), 2) AS avarage_price,
+		ROUND(AVG(value), 2) AS avarage_price,
 		category_code
 	FROM czechia_price cp
 	WHERE date_from >= '2018-10-01' 

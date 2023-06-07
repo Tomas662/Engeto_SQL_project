@@ -12,14 +12,6 @@ CREATE VIEW v_wage_quarter_2006_1 AS
 		AND payroll_quarter = 1
 	GROUP BY payroll_year, payroll_quarter);
 
-/*
-SELECT 
-	*
-FROM v_wage_quarter_2006_1;
-
-DROP VIEW v_wage_quarter_2006_1;
-*/
-
 CREATE VIEW v_wage_quarter_2018_4 AS
 	(SELECT 
 		ROUND(avg(wages)) AS avarage_wage,
@@ -33,14 +25,6 @@ CREATE VIEW v_wage_quarter_2018_4 AS
 		AND payroll_quarter = 4
 	GROUP BY payroll_year, payroll_quarter);
 
-/*
-SELECT 
-	*
-FROM v_wage_quarter_2018_4;
-
-DROP VIEW v_wage_quarter_2018_4;
-*/
-
 CREATE VIEW v_price_food_2006_1 AS 
 	(SELECT 
 		ROUND(avg(value), 2) AS avarage_price,
@@ -51,14 +35,6 @@ CREATE VIEW v_price_food_2006_1 AS
 	AND category_code IN('114201', '111301')
 	GROUP BY category_code);
 
-/*
-SELECT 
-	*
-FROM v_price_food_2006_1;
-
-DROP VIEW v_price_food_2006_1;
-*/
-
 CREATE VIEW v_price_food_2018_4 AS 
 	(SELECT 
 		ROUND(avg(value), 2) AS avarage_price,
@@ -68,14 +44,6 @@ CREATE VIEW v_price_food_2018_4 AS
 	AND date_to <= '2018-12-31'
 	AND category_code IN('114201', '111301')
 	GROUP BY category_code);
-
-/*
-SELECT 
-	*
-FROM v_price_food_2018_4;
-
-DROP VIEW v_price_food_2018_4;
-*/
 
 SELECT 
 	a.*,

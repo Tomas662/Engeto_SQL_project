@@ -7,7 +7,7 @@ SELECT
 	ROUND(((a.avarage_wage - c.avarage_wage) / c.avarage_wage * 100), 2) AS yearly_growth
 FROM
 	(SELECT 
-		ROUND(avg(wages)) AS avarage_wage,
+		ROUND(AVG(wages)) AS avarage_wage,
 		industry_branch_code,
 		payroll_year
 	FROM t_tomas_marek_project_sql_primary_final
@@ -22,7 +22,7 @@ JOIN
 ON b.code = a.industry_branch_code
 JOIN 
 	(SELECT
-		ROUND(avg(wages)) AS avarage_wage,
+		ROUND(AVG(wages)) AS avarage_wage,
 		industry_branch_code,
 		payroll_year
 	FROM t_tomas_marek_project_sql_primary_final

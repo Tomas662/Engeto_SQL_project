@@ -20,7 +20,7 @@ CREATE VIEW v_yearly_percentage_HDP AS
 		FROM economies e
 		WHERE country = 'Czech Republic'
 		AND GDP IS NOT NULL
-		GROUP BY year  DESC) b
+		GROUP BY year DESC) b
 	ON a.YEAR = b.YEAR + 1);
 
 /*

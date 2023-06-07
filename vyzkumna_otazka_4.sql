@@ -5,7 +5,7 @@ SELECT
 	ROUND(((b.avarage_price_of_food - d.avarage_price_of_food) / d.avarage_price_of_food * 100), 2) AS yearly_growth_food
 FROM
 	(SELECT 
-		ROUND(avg(wages)) AS avarage_wage,
+		ROUND(AVG(wages)) AS avarage_wage,
 		payroll_year
 	FROM t_tomas_marek_project_sql_primary_final
 	WHERE value_type_code = 5958
@@ -14,7 +14,7 @@ FROM
 	GROUP BY payroll_year) a
 JOIN
 	(SELECT
-		ROUND(avg(value), 2) AS avarage_price_of_food,
+		ROUND(AVG(value), 2) AS avarage_price_of_food,
 		CASE 
 			WHEN YEAR(date_from) = YEAR(date_to) THEN YEAR(date_from)
 		END AS year_food		
@@ -23,7 +23,7 @@ JOIN
 ON a.payroll_year = b.year_food
 JOIN
 	(SELECT 
-		ROUND(avg(wages)) AS avarage_wage,
+		ROUND(AVG(wages)) AS avarage_wage,
 		payroll_year
 	FROM t_tomas_marek_project_sql_primary_final
 	WHERE value_type_code = 5958
@@ -33,7 +33,7 @@ JOIN
 ON a.payroll_year = c.payroll_year + 1
 JOIN
 	(SELECT
-		ROUND(avg(value), 2) AS avarage_price_of_food,
+		ROUND(AVG(value), 2) AS avarage_price_of_food,
 		CASE 
 			WHEN YEAR(date_from) = YEAR(date_to) THEN YEAR(date_from)
 		END AS year_food		

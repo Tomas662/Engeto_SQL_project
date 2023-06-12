@@ -1,10 +1,10 @@
 
 SELECT 
-	a.avarage_wage,
-	a.industry_branch_code,
-	a.payroll_year,
-	b.name,
-	ROUND(((a.avarage_wage - c.avarage_wage) / c.avarage_wage * 100), 2) AS yearly_growth
+	wage.avarage_wage,
+	wage.industry_branch_code,
+	wage.payroll_year,
+	info.name,
+	ROUND(((wage.avarage_wage - wage_percentage.avarage_wage) / wage_percentage.avarage_wage * 100), 2) AS yearly_growth
 FROM
 	(SELECT 
 		ROUND(AVG(wages)) AS avarage_wage,
@@ -15,11 +15,11 @@ FROM
 		AND calculation_code = 100
 		AND unit_code = 200
 		AND industry_branch_code IS NOT NULL
-	GROUP BY industry_branch_code, payroll_year) a
+	GROUP BY industry_branch_code, payroll_year) wage
 JOIN
 	(SELECT code, name
-	FROM czechia_payroll_industry_branch cpib) b 
-ON b.code = a.industry_branch_code
+	FROM czechia_payroll_industry_branch cpib) info 
+ON info.code = wage.industry_branch_code
 JOIN 
 	(SELECT
 		ROUND(AVG(wages)) AS avarage_wage,
@@ -30,6 +30,6 @@ JOIN
 		AND calculation_code = 100
 		AND unit_code = 200
 		AND industry_branch_code IS NOT NULL
-	GROUP BY industry_branch_code, payroll_year) c
-ON a.industry_branch_code = c.industry_branch_code
-AND a.payroll_year = c.payroll_year + 1;
+	GROUP BY industry_branch_code, payroll_year) wage_percentage
+ON wage.industry_branch_code = wage_percentage.industry_branch_code
+AND wage.payroll_year = wage_percentage.payroll_year + 1;

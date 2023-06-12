@@ -62,7 +62,8 @@ a vypočítal průměrné roční zdražení/ zlevnění od roku 2006 až 2018.
 
 Výsledkem je, že nejmenší průměrná meziroční roční hodnota (v průběhu let 2006 až 2018) byla záporná,
 tedy -1,92%. Jedná se o potravinu cukr krystalový 1kg. Ve zkratce by se dalo říci, že cukr systematicky
-klesal každý rok o 1,92% po dobu 10 let.
+klesal každý rok o 1,92% po dobu 10 let. Jinak pro zajímavost bych zmínil, že cukr krystalový byl
+v průběhu let dosti volatilní. Cena "stagnovala" pouze v letech 2007, 2013 a 2016.
 
 Výzkumná otázka 4/
 

@@ -46,45 +46,45 @@ CREATE VIEW v_price_food_2018_4 AS
 	GROUP BY category_code);
 
 SELECT 
-	a.*,
-	b.avarage_price,
-	FLOOR((a.avarage_wage / b.avarage_price)) AS possibility_purchase,
-	c.*
+	wage.*,
+	price.avarage_price,
+	FLOOR((wage.avarage_wage / price.avarage_price)) AS possibility_purchase,
+	info.*
 FROM
 	(SELECT 
 		avarage_wage,
 		payroll_year,
 		payroll_quarter
-	FROM v_wage_quarter_2018_4) a
+	FROM v_wage_quarter_2018_4) wage
 JOIN
 	(SELECT
 		avarage_price,
 		category_code
-	FROM v_price_food_2018_4) b
+	FROM v_price_food_2018_4) price
 JOIN 
 	(SELECT
 		*
-	FROM czechia_price_category cpc) c 
-ON c.code = b.category_code;
+	FROM czechia_price_category cpc) info 
+ON info.code = price.category_code;
 
 SELECT 
-	a.*,
-	b.avarage_price,
-	FLOOR((a.avarage_wage / b.avarage_price)) AS possibility_purchase,
-	c.*
+	wage.*,
+	price.avarage_price,
+	FLOOR((wage.avarage_wage / price.avarage_price)) AS possibility_purchase,
+	info.*
 FROM
 	(SELECT 
 		avarage_wage,
 		payroll_year,
 		payroll_quarter
-	FROM v_wage_quarter_2006_1) a
+	FROM v_wage_quarter_2006_1) wage
 JOIN
 	(SELECT
 		avarage_price,
 		category_code
-	FROM v_price_food_2006_1) b
+	FROM v_price_food_2006_1) price
 JOIN 
 	(SELECT
 		*
-	FROM czechia_price_category cpc) c 
-ON c.code = b.category_code;
+	FROM czechia_price_category cpc) info 
+ON info.code = price.category_code;

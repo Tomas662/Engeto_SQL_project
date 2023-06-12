@@ -49,8 +49,8 @@ CREATE VIEW v_yearly_percentage_wage AS
 
 CREATE VIEW v_yearly_percentage_food AS
 	(SELECT
-		b.year_food,
-		ROUND(((a.avarage_price_of_food - b.avarage_price_of_food) / b.avarage_price_of_food * 100), 2) AS yearly_percentage_food
+		food_percentage.year_food,
+		ROUND(((food.avarage_price_of_food - food_percentage.avarage_price_of_food) / food_percentage.avarage_price_of_food * 100), 2) AS yearly_percentage_food
 	FROM
 		(SELECT
 			ROUND(AVG(value), 2) AS avarage_price_of_food,
@@ -58,7 +58,7 @@ CREATE VIEW v_yearly_percentage_food AS
 				WHEN YEAR(date_from) = YEAR(date_to) THEN YEAR(date_from)
 			END AS year_food		
 		FROM t_tomas_marek_project_sql_primary_final
-		GROUP BY year_food) a
+		GROUP BY year_food) food
 	JOIN
 		(SELECT
 			ROUND(AVG(value), 2) AS avarage_price_of_food,
@@ -66,8 +66,8 @@ CREATE VIEW v_yearly_percentage_food AS
 				WHEN YEAR(date_from) = YEAR(date_to) THEN YEAR(date_from)
 			END AS year_food		
 		FROM t_tomas_marek_project_sql_primary_final
-		GROUP BY year_food) b
-	ON a.year_food = b.year_food + 1);
+		GROUP BY year_food) food_percentage
+	ON food.year_food = food_percentage.year_food + 1);
 
 SELECT 
 	a.*,

@@ -9,12 +9,16 @@ CREATE TABLE t_tomas_marek_project_sql_secondary_final AS
 		economy.gini
 	FROM
 		(SELECT
-			*
-		FROM countries c) country 
+			country,
+		 	continent,
+		 	population
+		FROM countries) country 
 	JOIN 
 		(SELECT 
-			*
-		FROM economies e
+			YEAR,
+		 	GDP,
+		 	gini
+		FROM economies
 		WHERE YEAR BETWEEN 2006 AND 2018) economy  
 	ON country.country = economy.country
 	WHERE continent = 'Europe'	

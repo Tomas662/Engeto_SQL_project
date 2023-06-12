@@ -7,12 +7,6 @@ Vytvořil jsem si tabulku t_tomas_marek_project_sql_primary_final, kde jsem
 spojil tabulku czechia_payroll s tabulkou czechia_price propojenou rokem. 
 Z výše uvedené tabulky jsem poté vycházel na zodpovězení výzkumných otázek.
 
-Jinak pro ukázku, případně vymazání tabulky, jsem používal kód (viz. níže)
-
-SELECT * FROM t_tomas_marek_project_sql_primary_final hlavni_cr;
-
-DROP TABLE t_tomas_marek_project_sql_primary_final;
-
 Výzkumná otázka 1/
 
 Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
@@ -60,10 +54,10 @@ potravin v určitých letech. To vše jsem si uložil do pohledu v_yearly_growth
 Z výše uvedené tabulky jsem si vypsal důležité informace pro indetifikaci potraviny 
 a vypočítal průměrné roční zdražení/ zlevnění od roku 2006 až 2018.
 
-Výsledkem je, že nejmenší průměrná meziroční roční hodnota (v průběhu let 2006 až 2018) byla záporná,
+Výsledkem je, že nejmenší průměrná roční hodnota (v průběhu let 2006 až 2018) byla záporná,
 tedy -1,92%. Jedná se o potravinu cukr krystalový 1kg. Ve zkratce by se dalo říci, že cukr systematicky
-klesal každý rok o 1,92% po dobu 10 let. Jinak pro zajímavost bych zmínil, že cukr krystalový byl
-v průběhu let dosti volatilní. Cena "stagnovala" pouze v letech 2007, 2013 a 2016.
+klesal každý rok o 1,92% po dobu 10 let. Jinak pro zajímavost bych zmínil, že cena cukru byla
+v průběhu let dost volatilní. Cena "stagnovala" pouze v letech 2007, 2013 a 2016.
 
 Výzkumná otázka 4/
 

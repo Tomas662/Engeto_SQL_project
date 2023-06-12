@@ -70,24 +70,24 @@ CREATE VIEW v_yearly_percentage_food AS
 	ON food.year_food = food_percentage.year_food + 1);
 
 SELECT 
-	a.*,
-	b.yearly_percentage_wage,
-	c.yearly_percentage_food
+	yearly_HDP.*,
+	yearly_wage.yearly_percentage_wage,
+	yearly_food.yearly_percentage_food
 FROM
 	(SELECT 
 		YEAR,
 		yearly_percentage_HDP
-	FROM v_yearly_percentage_HDP) a 
+	FROM v_yearly_percentage_HDP) yearly_HDP 
 JOIN
 	(SELECT 
 		payroll_year,
 		yearly_percentage_wage
-	FROM v_yearly_percentage_wage) b
-ON a.YEAR = b.payroll_year
+	FROM v_yearly_percentage_wage) yearly_wage
+ON yearly_HDP.YEAR = yearly_wage.payroll_year
 JOIN 
 	(SELECT 
 		yearly_percentage_food,
 		year_food
-	FROM v_yearly_percentage_food) c
-ON a.YEAR = c.year_food	
-GROUP BY a.year;
+	FROM v_yearly_percentage_food) yearly_food
+ON yearly_HDP.YEAR = yearly_food.year_food	
+GROUP BY yearly_HDP.year;

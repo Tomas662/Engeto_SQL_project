@@ -54,12 +54,15 @@ Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuá
 Z t_tomas_marek_project_sql_primary_final jsem si vytáhl údaje potřebné 
 k zjištění průměrné ceny potravin na jednotlivé roky (původně bylo po 
 kvartálech). Tabulku jsem připojil na tabulku czechia_price_category,
-abych získal název potraviny a např. „1 kg“. Tabulku jsem nakonec napojil
+abych získal název potraviny a např. „1 kg“. Dále jsem tabulku napojil
 samu na sebe, abych zjistil percentuální meziroční nárost cen konkrétních 
-potravin v určitých letech. 
+potravin v určitých letech. To vše jsem si uložil do pohledu v_yearly_growth_of_food.
+Z výše uvedené tabulky jsem si vypsal důležité informace pro indetifikaci potraviny 
+a vypočítal průměrné roční zdražení/ zlevnění od roku 2006 až 2018.
 
-Výsledkem je, že nejmenší zdražení bylo pouze o 0,01% z roku 2008 na rok 2009
-u roztíratelného rostlinného tuku za 84,41 Kč.
+Výsledkem je, že nejmenší průměrná meziroční roční hodnota (v průběhu let 2006 až 2018) byla záporná,
+tedy -1,92%. Jedná se o potravinu cukr krystalový 1kg. Ve zkratce by se dalo říci, že cukr systematicky
+klesal každý rok o 1,92% po dobu 10 let.
 
 Výzkumná otázka 4/
 

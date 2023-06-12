@@ -17,7 +17,8 @@ CREATE TABLE t_tomas_marek_project_sql_secondary_final AS
 		(SELECT 
 			YEAR,
 		 	GDP,
-		 	gini
+		 	gini,
+		 	country
 		FROM economies
 		WHERE YEAR BETWEEN 2006 AND 2018) economy  
 	ON country.country = economy.country

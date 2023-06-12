@@ -1,8 +1,8 @@
 
 CREATE VIEW v_yearly_percentage_HDP AS
 	(SELECT 
-		a.YEAR,
-		ROUND(((a.HDP - b.HDP) / b.HDP * 100), 2) AS yearly_percentage_HDP
+		HDP.YEAR,
+		ROUND(((HDP.HDP - HDP_percentage.HDP) / HDP_percentage.HDP * 100), 2) AS yearly_percentage_HDP
 	FROM
 		(SELECT 
 			country,
@@ -11,7 +11,7 @@ CREATE VIEW v_yearly_percentage_HDP AS
 		FROM economies e
 		WHERE country = 'Czech Republic'
 		AND GDP IS NOT NULL
-		GROUP BY year DESC) a
+		GROUP BY year DESC) HDP
 	JOIN 
 		(SELECT 
 			country,
@@ -20,8 +20,8 @@ CREATE VIEW v_yearly_percentage_HDP AS
 		FROM economies e
 		WHERE country = 'Czech Republic'
 		AND GDP IS NOT NULL
-		GROUP BY year DESC) b
-	ON a.YEAR = b.YEAR + 1);
+		GROUP BY year DESC) HDP_percentage
+	ON HDP.YEAR = HDP_percentage.YEAR + 1);
 
 CREATE VIEW v_yearly_percentage_wage AS
 	(SELECT 

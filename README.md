@@ -88,8 +88,7 @@ Nejprve jsem si vytvořil tabulku pro mzdy, cen potravin a výšku HDP, které j
 napojil samy na sebe, abych mohl zjistit meziroční nárůst. A zároveň vše sjednotil na
 stejné roky, abych mohl hodnoty porovnat. 
 
-Výsledek bych shrnul tak, že úplně nevím, jak bych na otázku odpověděl, protože z mé tabulky 
-mi přijde, že vyšší HDP nemá nějakou vyšší souvislost se mzdami, případně cenami potravin.
+Výsledkem je, že výška HDP nemá zásadní vliv na ceny mezd či cen potravin. Hypotézu vyvracím.
 
 „Secondary“
 Vybral jsem si „Europe“ ve sloupci „continent“ na roky 2006 až 2018 (jako roky, které jsme 

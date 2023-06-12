@@ -25,8 +25,8 @@ CREATE VIEW v_yearly_percentage_HDP AS
 
 CREATE VIEW v_yearly_percentage_wage AS
 	(SELECT 
-		a.payroll_year,
-		ROUND(((a.avarage_wage - b.avarage_wage) / b.avarage_wage * 100), 2) AS yearly_percentage_wage
+		wage.payroll_year,
+		ROUND(((wage.avarage_wage - wage_percentage.avarage_wage) / wage_percentage.avarage_wage * 100), 2) AS yearly_percentage_wage
 	FROM	
 		(SELECT 
 			ROUND(AVG(wages)) AS avarage_wage,
@@ -35,7 +35,7 @@ CREATE VIEW v_yearly_percentage_wage AS
 		WHERE value_type_code = 5958
 			AND calculation_code = 100
 			AND unit_code = 200
-		GROUP BY payroll_year) a
+		GROUP BY payroll_year) wage
 	JOIN
 	(SELECT 
 			ROUND(AVG(wages)) AS avarage_wage,
@@ -44,8 +44,8 @@ CREATE VIEW v_yearly_percentage_wage AS
 		WHERE value_type_code = 5958
 			AND calculation_code = 100
 			AND unit_code = 200
-		GROUP BY payroll_year) b
-	ON a.payroll_year = b.payroll_year + 1);
+		GROUP BY payroll_year) wage_percentage
+	ON wage.payroll_year = wage_percentage.payroll_year + 1);
 
 CREATE VIEW v_yearly_percentage_food AS
 	(SELECT
